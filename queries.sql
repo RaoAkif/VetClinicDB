@@ -31,18 +31,70 @@ SET species = 'unspecified';
 ROLLBACK;
 /* Transaction End*/
 
-/*mon species*/
+/*digimon species*/
 BEGIN;
 UPDATE animals
 SET species = 'digimon'
 WHERE name LIKE '%mon';
 
+/*pokemon species*/
 UPDATE animals
 SET species = 'pokemon'
 WHERE species = '';
 
+/*DELETE Check*/
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
 
+/*DELETE Specific DOB*/
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth >= '01-01-2022';
 
+/*Add a SAVEPOINT*/
+SAVEPOINT BORN_BEFORE_2022;
 
+/*Add a Wrong Sign*/
+UPDATE animals
+SET weight_kg = weight_kg * -1;
 
+/* Restore/Rollback to a SAVEPOINT*/
+ROLLBACK TO BORN_BEFORE_2022;
+
+/*Make a Commit*/
+COMMIT;
+
+/*How many animals are there?*/
+SELECT COUNT(*)
+FROM animals;
+
+/*How many animals have never tried to escape?*/
+SELECT COUNT(*)
+FROM animals
+WHERE escape_attempts = 0;
+
+/*What is the average weight of animals?*/
+SELECT AVG(weight_kg)
+FROM animals;
+
+/*Who escapes the most, neutered or not neutered animals?*/
+SELECT neutered,
+COUNT(escape_attempts)
+FROM animals
+WHERE escape_attempts > 0
+GROUP BY neutered;
+
+/*What is the minimum and maximum weight of each type of animal?*/
+SELECT species,
+MIN(weight_kg),
+MAX(weight_kg)
+FROM animals
+GROUP BY species;
+
+/*What is the average number of escape attempts per animal type of those born between 1990 and 2000?*/
+SELECT species, AVG(escape_attempts)
+FROM animals
+WHERE date_of_birth > '01-01-1990' AND date_of_birth < '01-01-2000'
+GROUP BY species;
 
