@@ -40,7 +40,7 @@ WHERE name LIKE '%mon';
 /*pokemon species*/
 UPDATE animals
 SET species = 'pokemon'
-WHERE species = '';
+WHERE species NOT LIKE '%mon';
 
 /*DELETE Check*/
 BEGIN;
