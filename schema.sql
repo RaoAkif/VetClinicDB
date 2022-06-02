@@ -40,3 +40,29 @@ ADD owner_id int;
 
 ALTER TABLE animals
 ADD FOREIGN KEY (owner_id) REFERENCES owners (id);
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name varchar(100),
+    age int,
+    date_of_graduation date
+);
+
+CREATE TABLE specializations (
+  id serial,
+  vet_id int NOT NULL,
+  species_id int NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vet_id) REFERENCES vets(id),
+  FOREIGN KEY (species_id) REFERENCES species(id)
+);
+
+CREATE TABLE visits (
+  id serial,
+  animals_id int NOT NULL,
+  vet_id int NOT NULL,
+  date_of_visit date,
+  PRIMARY KEY (id),
+  FOREIGN KEY (animals_id) REFERENCES animals(id),
+  FOREIGN KEY (vet_id) REFERENCES vets(id)
+);
