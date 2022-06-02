@@ -59,10 +59,10 @@ CREATE TABLE specializations (
 
 CREATE TABLE visits (
   id serial,
-  animals_id int NOT NULL,
+  animal_id int NOT NULL,
   vet_id int NOT NULL,
   date_of_visit date,
   PRIMARY KEY (id),
-  FOREIGN KEY (animals_id) REFERENCES animals(id),
+  FOREIGN KEY (animal_id) REFERENCES animals(id),
   FOREIGN KEY (vet_id) REFERENCES vets(id)
 );
