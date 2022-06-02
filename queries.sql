@@ -98,9 +98,7 @@ FROM animals
 WHERE date_of_birth > '01-01-1990' AND date_of_birth < '01-01-2000'
 GROUP BY species;
 
-
 /* ----- Write queries (using JOIN) to answer the following questions: ----- */
-
 
 /*What animals belong to Melody Pond?*/
 SELECT animals.name FROM animals
