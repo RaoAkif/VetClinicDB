@@ -170,5 +170,5 @@ VALUES(9, 2, '08-03-2020');
 INSERT INTO visits (animal_id, vet_id, date_of_visit)
 VALUES(10, 3, '05-24-2020');
 
-INSERT INTO visits (id, animal_id, vet_id, date_of_visit)
-VALUES(1, 10, 1, '01-11-2021');
+INSERT INTO visits (animal_id, vet_id, date_of_visit)
+VALUES(10, 1, '01-11-2021');
