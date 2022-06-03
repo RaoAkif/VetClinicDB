@@ -167,7 +167,9 @@ JOIN vets ON vets.id = visits.vet_id
 WHERE vets.name = 'Stephanie Mendez';
 
 /*List all vets and their specialties, including vets with no specialties.*/
-
+SELECT vets.name as vet, species.name as speciality FROM vets
+JOIN specializations ON vets.id = specializations.vet_id
+JOIN species ON species.id = specializations.species_id;
 
 /*List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.*/
 
