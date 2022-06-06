@@ -3,7 +3,7 @@
 > This is SQL Database project for a vet clinic.
 
 
-## Getting Started
+## Getting Started with this Repository
 
 This repository includes files with plain SQL that can be used to recreate a database:
 
