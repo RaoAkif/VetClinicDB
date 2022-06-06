@@ -67,6 +67,8 @@ CREATE TABLE visits (
   FOREIGN KEY (vet_id) REFERENCES vets(id)
 );
 
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
 -- SELECT COUNT(*) FROM visits where animal_id = 4;
 CREATE INDEX animal_index ON visits(animal_id);
 
