@@ -66,3 +66,14 @@ CREATE TABLE visits (
   FOREIGN KEY (animal_id) REFERENCES animals(id),
   FOREIGN KEY (vet_id) REFERENCES vets(id)
 );
+
+-- SELECT COUNT(*) FROM visits where animal_id = 4;
+CREATE INDEX animal_index ON visits(animal_id);
+
+-- SELECT * FROM visits where vet_id = 2;
+CREATE INDEX vet_index ON visits(vet_id);
+
+-- SELECT * FROM owners where email = 'owner_18327@mail.com';
+CREATE INDEX email_index ON owners(email);
+
+
