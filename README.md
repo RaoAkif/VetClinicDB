@@ -14,7 +14,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
 ## Schema
 ![schema](https://user-images.githubusercontent.com/61361037/172629479-0802681f-c9b5-4194-8554-8aefe5dd177a.png)
 
-
 ## Author
 
 👤 **Rao Akif**
